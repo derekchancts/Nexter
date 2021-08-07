@@ -1,0 +1,65 @@
+
+.features {
+  // background-color: $color-grey-light-2;
+  grid-column: center-start / center-end;
+
+  margin: 15rem 0;
+
+  display: grid;
+  // grid-template-columns: repeat(3, 1fr);
+
+  // to make the design "responsive"
+  // "auto-fit" - this will fit as many tracks as fit in the container
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); 
+  grid-gap: 6rem;
+  
+  // grid-template-rows: repeat(2, 1fr)  // explicit grid
+  // grid-template-rows: auto auto;   // no need as this is the default and we get implicit grid
+
+
+
+  /*
+  grid-template-columns: subgrid;  // subgrid only works on Firefox at the moment (Aug 2021) 
+  grid-gap: 6rem;
+
+  margin: 15rem 0;
+
+  .feature {
+    &:nth-child(3n + 1) {
+        grid-column: 1 / span 2;
+    }
+    &:nth-child(3n + 2) {
+        grid-column: 4 / span 2;
+    }
+    &:nth-child(3n + 3) {
+        grid-column: 7 / span 2;
+    }
+  }
+  */
+
+  align-items: start;  // default is "stretch". So, we could get a bigger gap if the amount of contents are not the same
+
+}
+
+
+.feature {
+  display: grid;
+  grid-template-columns: min-content 1fr; 
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem;
+
+  &__icon {
+    fill: $color-primary;
+    width: 4.5rem;
+    height: 4.5rem;
+
+    // grid-row: 1 / -1;   // -1 here means the end of the explicit grid. But we did not define any explicit grid rows
+    grid-row: 1 / span 2;   // therefore, we need to use "span 2" here instead
+
+    transform: translateY(-1rem);
+  }
+
+  &__text {
+    font-size: 1.7rem;
+  }
+}
