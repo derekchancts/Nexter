@@ -2,5 +2,53 @@
 .realtors {
   background-color: $color-secondary;
   // grid-column: col-end 6 / full-end;
-  grid-column: col-start 7 / full-end;
+  grid-column: col-start 7 / full-end; 
+  padding: 3rem;
+
+  
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  row-gap: 2rem;
+
+  // centers the text "Top 3 Realtors".
+  // does not affect the 3 items underneath because they are already occupying the full weight of the grid/container
+  justify-items: center;  
+  
+
+  /*
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // align-content: center;
+  align-items: center;
+  row-gap: 2rem;
+  */
+
+
+  &__list {
+    display: grid;
+    grid-template-columns: min-content max-content;  // min-content for the image, max-content for the text (no line breaks)
+    column-gap: 2rem;
+    row-gap: 5vh;  // 5% of the viewport. wants the height to change according to the height of the viewport.
+
+    align-items: center;
+    
+  }
+
+
+  &__img {
+    // width: 100%;
+    width: 7rem;
+    border-radius: 50%;
+    display: block;  // best to display images as a block element
+    
+  }
+
+
+  &__solid {
+    text-transform: uppercase;
+    color: $color-grey-light-2;
+    margin-top: -3px;  // same effect as "transform: translateY(-3px);"
+  }
 }

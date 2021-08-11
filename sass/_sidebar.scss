@@ -3,4 +3,37 @@
   background-color: $color-primary;
   grid-column: sidebar-start / sidebar-end;
   grid-row: 1 / -1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.nav-btn {
+  border: none;  // button has a border and some border radius by default
+  border-radius: 0;
+
+  background-color: #fff;
+  height: 2px;
+  width: 45px;
+  margin-top: 4rem;
+
+
+  &::before,
+  &::after {
+    background-color: #fff;
+    height: 2px;
+    width: 45px;
+    content:""; 
+    display: block;
+  }
+
+  &::before {
+    transform: translateY(-1.5rem);
+  }
+
+  &::after {
+    transform: translateY(1.5rem);
+  }
 }
