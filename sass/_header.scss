@@ -2,4 +2,68 @@
 .header {
   background-color: $color-grey-dark-1;
   grid-column: full-start / col-end 6;
+
+  // use linear gradient to make the image darker
+  // giving the same opacity to produce an overlay / something laid as a covering over something else
+  background-image: linear-gradient(rgba($color-secondary, .93), rgba($color-secondary, .93)), url(../img/hero.jpeg);
+  background-size: cover;
+  background-position: center;
+  padding: 8rem;
+  padding-top: 4rem;
+
+  display: grid;
+  grid-template-rows: 1fr min-content 6rem 1fr;  // 1fr - taking the remaining space. can "scale" according to viewport space
+  grid-template-columns: max-content;  // the content was taking up all the space available. So, using "max-content" can solve this
+  // grid-row-gap: 1.5rem;
+  row-gap: 1.5rem;
+  justify-content: center;
+
+
+  &__logo {
+    height: 3rem;
+    justify-self: center;
+  }
+
+
+  &__btn {
+    align-self: start;
+    justify-self: start;
+  }
+
+
+  &__seenon-text {
+    display: grid;
+    grid-template-rows: 1;
+    grid-template-columns: 1fr max-content 1fr;   // 1fr - taking the remaining space. can "scale" according to viewport space
+    column-gap: 1.5rem;
+    align-items: center;
+
+    font-size: 1.6rem;
+    color: $color-grey-light-2;
+
+    &::before,
+    &::after {
+      content: "";
+      height: 1px;
+      display: block;
+      background-color: currentColor;
+    }
+  }
+
+
+  &__seenon-logos {
+    // display: flex;
+    // column-gap: 8rem;
+    // justify-content: center;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 3rem;
+    justify-items: center;
+
+    img {
+      height: 2.5rem;
+      filter: brightness(70%);
+    }
+  }
 }

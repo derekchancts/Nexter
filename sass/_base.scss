@@ -39,6 +39,7 @@ body {
   display: grid;
   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
 
+ 
   // 8 COLUMN LAYOUT
   // grid-template-columns: repeat(8, 1fr);   
   // grid-template-columns: repeat(8, 14rem);   // 1140px/8 col = 142.5px or around 14rem
