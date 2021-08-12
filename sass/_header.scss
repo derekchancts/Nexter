@@ -12,11 +12,35 @@
   padding-top: 4rem;
 
   display: grid;
-  grid-template-rows: 1fr min-content 6rem 1fr;  // 1fr - taking the remaining space. can "scale" according to viewport space
-  grid-template-columns: max-content;  // the content was taking up all the space available. So, using "max-content" can solve this
+
+    // 1fr - taking the remaining space. can "scale" according to viewport space
+
+    // 6rem - this is fixed. So, this is "NOT" responsive
+  // grid-template-rows: 1fr min-content 6rem 1fr;  
+  grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;  
+
+  
+      // the content was taking up all the space available or as wide as possible in orde to fit all the content, 
+      // regardless of the width of the viewport or the container itself. So, using "max-content" can solve this
+      // but it will "NOT" be responsive if teh viewport gets smaller
+  // grid-template-columns: max-content;  
+
+  // "min-content"- the width should never be narrower than the content
+  grid-template-columns: minmax(min-content, max-content);
+
   // grid-row-gap: 1.5rem;
-  row-gap: 1.5rem;
+  row-gap: 1.5rem;  // the gap size is fixed. So, this is "NOT" responsive
   justify-content: center;
+
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-column: full-start / full-end;
+    // grid-column: 1 / -1;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    padding: 5rem;
+  }
 
 
   &__logo {
@@ -60,10 +84,17 @@
     grid-template-columns: repeat(4, 1fr);
     column-gap: 3rem;
     justify-items: center;
+    align-items: center;
 
     img {
-      height: 2.5rem;
+      // height: 2.5rem;  // we defined a "fixed" size for the image. So, they won't scale / not responsive
+      max-height: 2.5rem;
+      max-width: 100%;
+
       filter: brightness(70%);
     }
+
+
+ 
   }
 }
