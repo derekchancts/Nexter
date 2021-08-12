@@ -25,6 +25,11 @@
   row-gap: 2rem;
   */
 
+  @media only screen and (max-width: $bp-medium) {
+    grid-column: full-start / full-end;
+    // grid-column: 1 / -1;
+  }
+
 
   &__list {
     display: grid;
@@ -33,7 +38,14 @@
     row-gap: 5vh;  // 5% of the viewport. wants the height to change according to the height of the viewport.
 
     align-items: center;
-    
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-template-columns: repeat(3, min-content max-content);  // 3 times (image, text)
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      grid-template-columns: min-content max-content;
+    }
   }
 
 
